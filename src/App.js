@@ -1,7 +1,10 @@
+import Header from "./components/Header";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 const App = () => {
     return(
         <>
-            <h1>hello world</h1>
+            <Header />
         </>
     )
 }
