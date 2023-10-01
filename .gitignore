@@ -1,0 +1,11 @@
+# Dependency directories
+/node_modules
+
+# Production build
+/dist
+
+# Parcel cache
+.parcel-cache
+
+# Editor directories and files
+.vscode
