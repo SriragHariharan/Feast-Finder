@@ -1,10 +1,11 @@
-import Header from "./components/Header";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import HeroSection from "./components/HeroSection";
+import Navbar from "./components/Navbar";
 
 const App = () => {
     return(
         <>
-            <Header />
+            <Navbar />
+            <HeroSection />
         </>
     )
 }
