@@ -2,11 +2,15 @@
 
 import useGetRestaurants from "../hooks/useGetRestaurants";
 import RestaurantCard from "./RestaurantCard";
+import HomeShimmerLayout from "./shimmers/HomeShimmerLayout";
 
 const Restaurants = () => {
     const restaurants = useGetRestaurants();
-    console.log("restros :::",restaurants);
-
+    
+    //shimmer code to be shown on loading
+    if(restaurants.length === 0){
+        return <HomeShimmerLayout />
+    }
 
     return(
         <div className="p-7 sm:p-20 grid grid-cols-4 gap-6">
@@ -16,8 +20,7 @@ const Restaurants = () => {
                         <RestaurantCard restaurantInfo={res} />
                     </div>
                 ) )
-            }
-            
+            }            
         </div>
     )
 }
