@@ -1,13 +1,13 @@
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
-import RestaurantCard from "./components/RestaurantCard";
+import Restaurants from "./components/Restaurants";
 
 const App = () => {
     return(
         <>
             <Navbar />
             <HeroSection />
-                <RestaurantCard />
+            <Restaurants />
         </>
     )
 }
