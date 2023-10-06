@@ -19,8 +19,11 @@ const RestaurantCard = ({restaurantInfo}) => {
       {/* Restaurant details */}
       <div className="px-4 py-2">
         <div className="font-bold text-sm mb-2 xl:text-xl">{name}</div>
-        <p className="text-gray-500 text-xs xl:text-lg">{areaName}</p>
-        <p className="text-gray-700 text-xs mb-1 xl:text-lg">{cuisines.join(', ')}</p>
+        <p className="text-gray-400 text-xs xl:text-lg">
+          <i className="fa-solid fa-location-dot"></i> {areaName}
+        </p>
+        <p className="text-gray-600 text-xs mb-1 xl:text-lg">
+          <i className="text-gray-500 fa-solid fa-bell-concierge"></i> {cuisines.join(', ')}</p>
       </div>
     </div>
   );
