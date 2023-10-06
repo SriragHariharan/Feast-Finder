@@ -4,13 +4,14 @@ import Navbar from "./components/Navbar";
 import Restaurants from "./components/Restaurants";
 import Search from "./components/Search";
 
+import { RouterProvider } from "react-router-dom";
+import useRoutes from "./hooks/useRoutes";
+
 const App = () => {
+    const router = useRoutes();
     return(
         <>
-            <Navbar />
-            <HeroSection />
-            <Restaurants />
-            <Footer/>
+            <RouterProvider router={router} />
         </>
     )
 }
