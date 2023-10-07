@@ -6,6 +6,7 @@ import {
 
 import RootLayout from "../layouts/RootLayout";
 import HomePage from "../layouts/HomePage";
+import RestaurantDetails from "../layouts/RestaurantDetails";
 
 
 const useRoutes = () => {
@@ -13,6 +14,7 @@ const useRoutes = () => {
         createRoutesFromElements(
             <Route path="/" element={<RootLayout />}>
                 <Route index element={<HomePage />} />
+                <Route path="view-restaurant/:id" element={<RestaurantDetails />} />
             </Route>
         )
     );
