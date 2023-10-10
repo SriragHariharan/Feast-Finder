@@ -1,18 +1,34 @@
+import { useState } from "react";
 import MenuItems from "./MenuItems"
 
-function RestaurantAccordion() {
+function RestaurantAccordion({cuisineDetails}) {
+  const [showMenu, setShowmenu] = useState(0);
+
+  const changeshowMenu = (title) => {
+    setShowmenu(title);
+  }
+
   return (
     <div className='w-full md:w-9/12 xl:w-6/12 mx-auto'>
         {/* accordion starts here */}
-        <div className='flex justify-between m-5'>
-            <p className='text-lg font-semibold'>Recommended (22)</p>
-            <p className="fa-solid fa-chevron-down mt-1"></p>
-            {/* <p className="fa-solid fa-chevron-up mt-1"></p> */}
-        </div>
-        {/* menu items starts here */}
-        <MenuItems />
+        { cuisineDetails?.map((c, i) => (
+          <div key={c?.card?.card?.title}>
+            <div className='flex justify-between m-5 bg-slate-100 p-5'>
+                <p className='text-lg text-red-600 font-semibold'>{c?.card?.card?.title} ({c?.card?.card?.itemCards?.length}) </p>
+                {
+                  (showMenu === 0 || showMenu > 0) && (<p onClick={() => changeshowMenu(i)} className="fa-solid fa-plus mt-1"> </p>) 
+                }
+            </div> 
+            <div>
+              {
+                  (showMenu === i) && c?.card?.card?.itemCards.map(i => <MenuItems item={i} />)
+              }
+            </div>
+          </div>    
+        ))
+        }
     </div>
   )
 }
 
-export default RestaurantAccordion
+export default RestaurantAccordion;
