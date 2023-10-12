@@ -2,6 +2,7 @@ import { useSelector } from "react-redux"
 import CartItems from "../components/CartItems";
 import { useEffect } from "react";
 import { useState } from "react";
+import ShippingForm from "../components/ShippingForm";
 
 const CartPage = () => {
     const [cartTotal, setCartTotal] = useState(0)
@@ -12,7 +13,7 @@ const CartPage = () => {
     //calculating the total cost of cart items
     useEffect(()=>{
         let cartAmount = cartItems?.map(c => (c.price*c.quantityToShip)/100).reduce((accu, curr) => {return accu + curr}, 0);
-        setCartTotal(cartAmount)
+        setCartTotal(Math.ceil(cartAmount))
     },[cartItems])
 
 
@@ -21,7 +22,7 @@ const CartPage = () => {
         <div className="font-caveat text-center text-3xl mt-16 font-semibold text-pink-400">CART</div>
         <div>
             {
-                cartItems?.length === 0 && <div className="font-caveat text-center mt-48 font-extrabold text-3xl text-cyan-600">No foods in cart &nbsp; : ( </div>
+                cartItems?.length === 0 && <div className="font-caveat text-center mt-48 mb-64 font-extrabold text-3xl text-cyan-600">No foods in cart &nbsp; : ( </div>
             }
         </div>
         <div>
@@ -39,6 +40,10 @@ const CartPage = () => {
                 )   
             }
         </div>
+        {
+            cartItems?.length !== 0 && <ShippingForm />
+        }
+        
         
     </div>
   )
