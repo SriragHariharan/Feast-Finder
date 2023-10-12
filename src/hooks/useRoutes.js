@@ -9,7 +9,6 @@ import HomePage from "../layouts/HomePage";
 import RestaurantDetails from "../layouts/RestaurantDetails";
 import CartPage from "../layouts/CartPage";
 
-
 const useRoutes = () => {
     const router = createBrowserRouter(
         createRoutesFromElements(

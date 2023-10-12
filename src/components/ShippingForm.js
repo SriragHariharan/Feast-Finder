@@ -15,29 +15,29 @@ const ShippingForm = () => {
 
             <input  {...register("userName", { required: true, maxLength: 20, minLength:3 })} 
                     type="text" placeholder="User name"
-                    className="p-2 w-full border-4 mb-12" 
+                    className="p-2 w-full border-4 mb-4" 
             />
-            { errors.userName?.type === "required" && (<p className="text-red-600 mb-3 font-medium text-base">   User name is required  </p>) }
-            { errors.userName?.type === "maxLength" && (<p className="text-red-600 mb-3 font-medium text-base">  User name too long     </p>) }
-            { errors.userName?.type === "minLength" && (<p className="text-red-600 mb-3 font-medium text-base">  User name too short    </p>) }
+            { errors.userName?.type === "required" && (<p className="text-red-600 mb-5 mt-[-18] font-medium text-base">   User name is required  </p>) }
+            { errors.userName?.type === "maxLength" && (<p className="text-red-600 mb-5 mt-[-18] font-medium text-base">  User name too long     </p>) }
+            { errors.userName?.type === "minLength" && (<p className="text-red-600 mb-5 mt-[-18] font-medium text-base">  User name too short    </p>) }
 
             <input  {...register("mobile", { required: true, minLength:10, maxLength: 10 })} 
                     type="number" 
                     placeholder="contact number" 
-                    className="p-2 w-full border-4 mb-12" 
+                    className="p-2 w-full border-4 mb-4" 
             />
-            { errors.mobile?.type === "required" && (<p className="text-red-600 mb-3 font-medium text-base">   Mobile number is required  </p>) }
-            { errors.mobile?.type === "maxLength" && (<p className="text-red-600 mb-3 font-medium text-base">  Mobile number too long     </p>) }
-            { errors.mobile?.type === "minLength" && (<p className="text-red-600 mb-3 font-medium text-base">  Mobile number too short    </p>) }
+            { errors.mobile?.type === "required" && (<p className="text-red-600 mb-5 mt-[-18] font-medium text-base">   Mobile number is required  </p>) }
+            { errors.mobile?.type === "maxLength" && (<p className="text-red-600 mb-5 mt-[-18] font-medium text-base">  Mobile number too long     </p>) }
+            { errors.mobile?.type === "minLength" && (<p className="text-red-600 mb-5 mt-[-18] font-medium text-base">  Mobile number too short    </p>) }
 
             <textarea  {...register("address", { required: true, minLength:10, maxLength: 100 })}
                     cols="30" rows="4" 
                     placeholder="delivery address" 
-                    className="p-2 w-full border-4 mb-12" 
+                    className="p-2 w-full border-4 mb-4" 
             ></textarea>
-            { errors.address?.type === "required" && (<p className="text-red-600 mb-3 font-medium text-base">   Address is required  </p>) }
-            { errors.address?.type === "maxLength" && (<p className="text-red-600 mb-3 font-medium text-base">  Address too long     </p>) }
-            { errors.address?.type === "minLength" && (<p className="text-red-600 mb-3 font-medium text-base">  Address too short    </p>) }
+            { errors.address?.type === "required" && (<p className="text-red-600 mb-5 mt-[-18] font-medium text-base">   Address is required  </p>) }
+            { errors.address?.type === "maxLength" && (<p className="text-red-600 mb-5 mt-[-18] font-medium text-base">  Address too long     </p>) }
+            { errors.address?.type === "minLength" && (<p className="text-red-600 mb-5 mt-[-18] font-medium text-base">  Address too short    </p>) }
 
             <button 
                     type="submit"

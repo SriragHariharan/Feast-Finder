@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import logo from '../../public/assets/logo.png'
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
 const Navbar = () => {
@@ -17,10 +18,10 @@ const Navbar = () => {
     <nav className="bg-white p-4">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
-        <div className="flex">
+        <Link className="flex">
           <img src={logo} alt="brand logo" width='75' height='75' />
           <span className='text-black ml-2 mt-5 text-lg sm:text-2xl md:text-2xl'>Feast Finder</span>
-        </div>
+        </Link>
 
         {/* Navbar Links (hidden on mobile) */}
         <div className="hidden md:flex space-x-5">
@@ -34,15 +35,15 @@ const Navbar = () => {
             Contact
           </span>
           <span className="text-slate-700 md:text-lg">
-            <i className="fa-solid fa-bag-shopping"></i>
+            <Link to={'/cart'} className=" fa-solid fa-bag-shopping"></Link>
             <span className='bg-slate-300 px-2 py-1  font-bold rounded-full text-xl'>{ cartItems?.length }</span>
           </span>
         </div>
 
         {/* Mobile Toggle Button */}
-        <div className="md:hidden">
-          <i className="fa-solid fa-bag-shopping"></i>
-          <span className='bg-slate-300 px-2 py-1  font-bold rounded-full text-xl'>{ cartItems?.length || 0 }</span>
+        <div className="md:hidden mr-[-70]">
+          <Link to={'/cart'} className="fa-solid fa-bag-shopping"></Link>
+          <span className='bg-slate-300 px-2 py-1 font-bold rounded-full text-xl'>{ cartItems?.length || 0 }</span>
         </div>
         <div className="md:hidden">
           <button
