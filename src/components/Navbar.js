@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../../public/assets/logo.png'
+import { useSelector } from 'react-redux';
 
 
 const Navbar = () => {
@@ -9,13 +10,16 @@ const Navbar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  //getting the number of items in the cart
+  const cartItems = useSelector(store => store?.cart?.cartItems)
+
   return (
     <nav className="bg-white p-4">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="flex">
           <img src={logo} alt="brand logo" width='75' height='75' />
-          <span className='text-black ml-2 mt-5 text-2xl sm:text-2xl md:text-2xl'>Feast Finder</span>
+          <span className='text-black ml-2 mt-5 text-lg sm:text-2xl md:text-2xl'>Feast Finder</span>
         </div>
 
         {/* Navbar Links (hidden on mobile) */}
@@ -27,14 +31,19 @@ const Navbar = () => {
             About
           </span>
           <span className="text-slate-700 md:text-lg">
-            Services
+            Contact
           </span>
           <span className="text-slate-700 md:text-lg">
-            Contact
+            <i className="fa-solid fa-bag-shopping"></i>
+            <span className='bg-slate-300 px-2 py-1  font-bold rounded-full text-xl'>{ cartItems?.length }</span>
           </span>
         </div>
 
         {/* Mobile Toggle Button */}
+        <div className="md:hidden">
+          <i className="fa-solid fa-bag-shopping"></i>
+          <span className='bg-slate-300 px-2 py-1  font-bold rounded-full text-xl'>{ cartItems?.length || 0 }</span>
+        </div>
         <div className="md:hidden">
           <button
             onClick={toggleMobileMenu}

@@ -21,7 +21,7 @@ function RestaurantAccordion({cuisineDetails}) {
             </div> 
             <div>
               {
-                  (showMenu === i) && c?.card?.card?.itemCards.map(i => <MenuItems item={i} />)
+                  (showMenu === i) && c?.card?.card?.itemCards.map(i => <MenuItems key={i?.card?.info?.id} item={i} />)
               }
             </div>
           </div>    

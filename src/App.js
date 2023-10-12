@@ -1,14 +1,15 @@
-import Navbar from "./components/Navbar";
 import { RouterProvider } from "react-router-dom";
 import useRoutes from "./hooks/useRoutes";
-import RestaurantInfo from "./components/RestaurantInfo";
-import RestaurantAccordion from "./components/RestaurantAccordion";
+import { Provider } from "react-redux";
+import store from "./redux-toolkit/store";
 
 const App = () => {
     const router = useRoutes();
     return(
         <>        
-            <RouterProvider router={router} />
+            <Provider store={store}>
+                <RouterProvider router={router} />
+            </Provider>
         </>
     )
 }

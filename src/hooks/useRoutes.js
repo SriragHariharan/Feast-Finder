@@ -7,6 +7,7 @@ import {
 import RootLayout from "../layouts/RootLayout";
 import HomePage from "../layouts/HomePage";
 import RestaurantDetails from "../layouts/RestaurantDetails";
+import CartPage from "../layouts/CartPage";
 
 
 const useRoutes = () => {
@@ -15,6 +16,7 @@ const useRoutes = () => {
             <Route path="/" element={<RootLayout />}>
                 <Route index element={<HomePage />} />
                 <Route path="view-restaurant/:id" element={<RestaurantDetails />} />
+                <Route path="cart" element={<CartPage />} />
             </Route>
         )
     );
