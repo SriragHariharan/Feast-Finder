@@ -3,6 +3,7 @@ import RestaurantAccordion from '../components/RestaurantAccordion'
 import RestaurantInfo from '../components/RestaurantInfo';
 import { useParams } from 'react-router-dom'
 import useGetRestaurantDetails from '../hooks/useGetRestaurantDetails';
+import RestaurantDetailsShimmer from '../components/shimmers/RestaurantDetailsShimmer';
 
 function RestaurantDetails() {
     const {id} = useParams();
@@ -12,8 +13,18 @@ function RestaurantDetails() {
     console.log("cuisineDetails :", cuisineDetails);
   return (
     <div>
-        <RestaurantInfo restaurantDetails={restaurantDetails} />
-        <RestaurantAccordion cuisineDetails={cuisineDetails} />
+      {
+        ( restaurantDetails && cuisineDetails ) ?
+        (
+          <>
+            <RestaurantInfo restaurantDetails={restaurantDetails} />
+            <RestaurantAccordion cuisineDetails={cuisineDetails} />
+          </>
+        ):
+        (
+          <RestaurantDetailsShimmer />
+        )
+      }
     </div>
   )
 }
