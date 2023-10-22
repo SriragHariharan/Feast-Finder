@@ -16,7 +16,7 @@ const Restaurants = () => {
     },[restaurants])
 
     //shimmer code to be shown on loading
-    if(restaurants.length === 0){
+    if(restaurants?.length === 0){
         return <HomeShimmerLayout />
     }
 
@@ -26,7 +26,7 @@ const Restaurants = () => {
     };
 
     return(
-        <>
+        <div className="dark:bg-sky-950">
             <Search restaurants={restaurants} updateFilteredRestaurants={updateFilteredRestaurants} />
             {
                 filteredRestaurants?.length ===0 ?
@@ -34,7 +34,7 @@ const Restaurants = () => {
                 :
                 (<div className="p-7 sm:p-20 grid grid-cols-4 gap-6">
                     {
-                        filteredRestaurants.map(res =>(
+                        filteredRestaurants?.map(res =>(
                             <div key={res?.info?.id} className="col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1">
                                 <RestaurantCard restaurantInfo={res} />
                             </div>
@@ -42,7 +42,7 @@ const Restaurants = () => {
                     }            
                 </div>)
             }
-        </>
+        </div>
     )
 }
 

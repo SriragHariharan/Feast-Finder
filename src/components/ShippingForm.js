@@ -9,8 +9,8 @@ const ShippingForm = () => {
   const onSubmit = (data) => console.log(data)
 
   return (
-    <div className="border-2 m-10 p-5  border-black mb-28 ">
-      <div className="text-center font-semibold text-xl mb-4">Delivery Info</div>
+    <div className="border-2 m-10 p-5 border-black mb-28 dark:border-green-500 ">
+      <div className="text-center font-semibold text-xl mb-4 dark:text-white">Delivery Info</div>
         <form onSubmit={handleSubmit(onSubmit)}>
 
             <input  {...register("userName", { required: true, maxLength: 20, minLength:3 })} 

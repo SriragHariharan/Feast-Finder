@@ -19,7 +19,7 @@ const RestaurantCard = ({restaurantInfo}) => {
 
       {/* Restaurant details */}
       <div className="px-4 py-2">
-        <div className="font-bold text-sm mb-2 xl:text-xl">{name}</div>
+        <div className="font-bold text-sm mb-2 xl:text-xl dark:text-white">{name}</div>
         <p className="text-gray-400 text-xs xl:text-lg">
           <i className="fa-solid fa-location-dot"></i> {areaName}
         </p>

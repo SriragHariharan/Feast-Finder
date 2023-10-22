@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import logo from '../../public/assets/logo.png'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { switchTheme } from '../redux-toolkit/themeReducer';
 
 
 const Navbar = () => {
@@ -12,31 +13,49 @@ const Navbar = () => {
   };
 
   //getting the number of items in the cart
-  const cartItems = useSelector(store => store?.cart?.cartItems)
+  const cartItems = useSelector(store => store?.cart?.cartItems);
+
+  //change theme
+  const dispatch = useDispatch();
+  const darkTheme = useSelector(store => store?.theme?.darkTheme)
+
+  const toggleTheme = () => {
+    dispatch(switchTheme())
+  }
 
   return (
-    <nav className="bg-white p-4">
+    <nav className="bg-white p-4 dark:bg-sky-950">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link className="flex">
           <img src={logo} alt="brand logo" width='75' height='75' />
-          <span className='text-black ml-2 mt-5 text-lg sm:text-2xl md:text-2xl'>Feast Finder</span>
+          <span className='text-black ml-2 mt-5 text-lg sm:text-2xl md:text-2xl dark:text-white'>
+            Feast Finder
+          </span>
         </Link>
 
         {/* Navbar Links (hidden on mobile) */}
         <div className="hidden md:flex space-x-5">
-          <span className="text-slate-700 md:text-lg">
+          <span className="text-slate-700 md:text-lg dark:text-white">
             Home
           </span>
-          <span className="text-slate-700 md:text-lg">
+          <span className="text-slate-700 md:text-lg dark:text-white">
             About
           </span>
-          <span className="text-slate-700 md:text-lg">
+          <span className="text-slate-700 md:text-lg dark:text-white">
             Contact
           </span>
-          <span className="text-slate-700 md:text-lg">
+          {/* dark light theme toggle buttons */}
+          {
+            darkTheme ? 
+            <span onClick={toggleTheme} className="fa-solid fa-sun fa-lg md:text-lg my-3 text-amber-600"></span>
+            :
+            <span onClick={toggleTheme} className="fa-solid fa-moon fa-lg md:text-lg my-3 text-slate-600"></span>
+          }
+
+          <span className="text-slate-700 md:text-lg dark:text-white">
             <Link to={'/cart'} className=" fa-solid fa-bag-shopping"></Link>
-            <span className='bg-slate-300 px-2 py-1  font-bold rounded-full text-xl'>{ cartItems?.length }</span>
+            <span className='bg-slate-300 px-2 py-1  font-bold rounded-full text-xl dark:text-black'>{ cartItems?.length }</span>
           </span>
         </div>
 

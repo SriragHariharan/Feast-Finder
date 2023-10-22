@@ -32,10 +32,10 @@ const CartItems = ({cartItem}) => {
                         (<p className='border-2 w-4 h-4  bg-red-600'></p>)
                     }
                     
-                    <p className='text-base md:text-lg font-semibold'>{cartItem?.name}</p>
-                    <p>₹ {((cartItem?.price)/100 || (cartItem?.defaultPrice)/100) * cartItem?.quantityToShip } </p>
-                    <p className='mt-3 text-xs md:text-sm'>{cartItem?.description}</p>
-                    <p className='mt-3 text-md md:text-base'>Order quantity : {cartItem?.quantityToShip}</p>
+                    <p className='text-base md:text-lg font-semibold dark:text-white'>{cartItem?.name}</p>
+                    <p className='dark:text-white'>₹ {((cartItem?.price)/100 || (cartItem?.defaultPrice)/100) * cartItem?.quantityToShip } </p>
+                    <p className='mt-3 text-xs md:text-sm dark:text-slate-300'>{cartItem?.description}</p>
+                    <p className='mt-3 text-md md:text-base dark:text-slate-300'>Order quantity : {cartItem?.quantityToShip}</p>
                     <div className='mt-5'>
                         {   (cartItem?.quantityToShip !== 1) ?
                             (<button
@@ -44,7 +44,7 @@ const CartItems = ({cartItem}) => {
                             >-</button>)
                             : (<button className='bg-red-600 px-3 rounded-lg text-white mr-3'>min quantity</button>)
                         }
-                        <p className='inline-block'> {cartItem?.quantityToShip} </p>
+                        <p className='inline-block dark:text-slate-100'> {cartItem?.quantityToShip} </p>
                         
                         {   (cartItem?.quantityToShip !== 5) ?
                             (<button 
@@ -58,10 +58,10 @@ const CartItems = ({cartItem}) => {
                     
                 </div>
                 <div className="w-3/12">
-                    <img  
+                    { cartItem?.imageId && <img  
                         src={SWIGGY_IMG + cartItem?.imageId }
                         className='w-36 h-28'
-                    />
+                    />}
                     
                 </div>
             </div>

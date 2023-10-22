@@ -14,7 +14,7 @@ function Search({ restaurants, updateFilteredRestaurants }) {
     }
 
     const topRestaurants = () => {
-        let topRestros = restaurants.filter(res => res?.info?.avgRating > 4.0)
+        let topRestros = restaurants.filter(res => res?.info?.avgRating > 4.4)
         updateFilteredRestaurants(topRestros)
     }
 
@@ -26,7 +26,7 @@ function Search({ restaurants, updateFilteredRestaurants }) {
 
 
   return (
-    <div className="mt-7 ">
+    <div className="pt-16 ">
         <div className="text-center">
             <input type="text" value={query} onChange={e => setQuery(e.target.value) } className="border-2 border-rose-400 px-4 py-1 active:border-rose-400 focus:outline-none" placeholder="search fav restro here" />
             <button onClick={handleSearch} className="border-2 border-l-0 bg-rose-400 border-rose-400 px-3 py-1">

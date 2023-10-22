@@ -22,9 +22,9 @@ function MenuItems({item}) {
                             : (<p className='border-2 w-4 h-4  bg-red-600'></p>)
                         }
                     
-                    <p className='text-base md:text-lg font-semibold'>{item?.card?.info?.name}</p>
-                    <p>₹ {(item?.card?.info?.price)/100 || (item?.card?.info?.defaultPrice)/100} </p>
-                    <p className='mt-3 text-xs md:text-sm'>{item?.card?.info?.description}</p>
+                    <p className='text-base md:text-lg font-semibold dark:text-slate-300'>{item?.card?.info?.name}</p>
+                    <p className="dark:text-slate-300">₹ {(item?.card?.info?.price)/100 || (item?.card?.info?.defaultPrice)/100} </p>
+                    <p className='mt-3 text-xs md:text-sm dark:text-slate-400'>{item?.card?.info?.description}</p>
                 </div>
                 <div className="w-3/12">
                     <div className="absolute">

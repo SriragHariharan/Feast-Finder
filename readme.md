@@ -11,6 +11,9 @@ Feast Finder is a React app that makes ordering food online a breeze. With featu
 
 🍔 Powered by swiggy API for real food data
 
+🌜Dark mode for those who preffer.
+
+
 
 ## Tech Stack 🛠️
 
